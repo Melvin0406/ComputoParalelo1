@@ -61,7 +61,7 @@ int main() {
     }
 
     for (int i = 0; i < numPhilosophers; i++) {
-        philosophers.emplace_back("Shrek " + std::to_string(i + 1));
+        philosophers.emplace_back("Shrekk " + std::to_string(i + 1));
         philosophers[i].LeftFork() = forks[i];
         philosophers[i].RightFork() = forks[(i + 1) % numPhilosophers];
     }
