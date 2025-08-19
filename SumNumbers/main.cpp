@@ -7,14 +7,18 @@
 class Counter {
 private:
     int id;
-
-public:
     int total;
 
+public:
     explicit Counter(int id) {
         this->total = 0;
         this->id = id;
     }
+
+    int getTotal() const {
+        return this->total;
+    }
+
     void count() {
         for (int i = 0; i < 100; i++) {
             int randomNumber = 1 + (rand() % 1000);
@@ -47,7 +51,7 @@ int main() {
 
     Counter &maxCounter = counters[0];
     for (int i = 1; i <= counters.size() - 1; i++) {
-        if (counters[i].total > maxCounter.total) {
+        if (counters[i].getTotal() > maxCounter.getTotal()) {
             maxCounter = counters[i];
         }
     }
