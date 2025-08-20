@@ -49,12 +49,12 @@ int main() {
         t.join();
     }
 
-    Counter &maxCounter = counters[0];
-    for (int i = 1; i <= counters.size() - 1; i++) {
-        if (counters[i].getTotal() > maxCounter.getTotal()) {
-            maxCounter = counters[i];
-        }
-    }
+    std::sort(counters.begin(), counters.end(),
+              [](const Counter &a, const Counter &b) {
+                  return a.getTotal() > b.getTotal();
+              });
 
-    maxCounter.showTotal();
+    counters.front().showTotal();
+
+    return 0;
 }
